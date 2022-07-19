@@ -121,10 +121,6 @@ COPY_OPTIONS ('mergeSchema' = 'true')
 
 -- COMMAND ----------
 
-drop table products
-
--- COMMAND ----------
-
 CREATE TABLE IF NOT EXISTS products;
 
 COPY INTO products
