@@ -2,9 +2,18 @@
 -- MAGIC %md 
 -- MAGIC ## Databricks <> dbt Hackathon: Retail
 -- MAGIC ### Raw to Bronze
+-- MAGIC 
+-- MAGIC This solutions accelerator leverages a retail sales organization dataset and brings together dbt and Databricks for end to end analytics and machine learning use cases.
+-- MAGIC * In this notebook we ingest unstructured and structured data sources in SQL using Databricks and COPY INTO
+-- MAGIC * In dbt cloud we model this data into a star schema
+-- MAGIC * Then we leverage Databricks and bamboolib and automl to enable feature engineering and ML for a citizen data scientist to predict customer churn
+-- MAGIC * Lastly we leverage the data model and ML model output and both dbt exposures & Databricks SQL to serve and visualize insight from this data
+-- MAGIC 
+-- MAGIC *DBR 11+ Runtime required
 
 -- COMMAND ----------
 
+-- DBTITLE 1,Retail Sales Dataset
 -- MAGIC %python
 -- MAGIC display(dbutils.fs.ls('/databricks-datasets/retail-org/'))
 
@@ -16,6 +25,7 @@
 
 -- COMMAND ----------
 
+-- DBTITLE 1,Create a Database in a UC Catalog to Use
 CREATE DATABASE IF NOT EXISTS asher_quickstart_catalog.dbx_dbt_retail;
 USE asher_quickstart_catalog.dbx_dbt_retail;
 
